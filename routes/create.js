@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const createPost = require('../controllers/createPost');
 const router = express.Router();
 
 const blogs = [
@@ -8,9 +9,7 @@ const blogs = [
   { title: "Microsoft Interview experience", content: "Lorem ipsum3" },
   { title: "Digit DP", content: "Lorem ipsum4" },
 ];
-router.get("/create-post", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "views", "create-post.html"));
-});
+router.get("/create-post", createPost.create);
 
 router.post("/create-post", (req, res) => {
   console.log(req.body.title, req.body.content);

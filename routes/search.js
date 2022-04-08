@@ -1,9 +1,8 @@
 const express = require("express");
 const path = require("path");
+const search = require('../controllers/search');
 const router = express.Router();
 
-router.get("/search", (req, res) => {
-   res.sendFile(path.join(__dirname, "..", "views", "search.html"));
-});
+router.get("/search", search.searchpost);
 
 module.exports = router;

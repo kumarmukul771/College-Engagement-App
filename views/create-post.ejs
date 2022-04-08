@@ -30,6 +30,7 @@
     ></script>
   </head>
   <body>
+    <%- include('partials/header') %>
     <h3>Compose</h3>
     <form action="/create-post" method="POST">
       <p>Title</p>
@@ -66,5 +67,6 @@
         <button type="submit" id="submit">Post</button>
       </div>
     </form>
+    <%- include('partials/footer') %>
   </body>
 </html>

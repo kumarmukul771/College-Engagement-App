@@ -43,7 +43,7 @@ body {
   }
   
   a {
-    color: inherit;
+    color: white;
     text-decoration: none;
     transition: all 0.3s;
   }
