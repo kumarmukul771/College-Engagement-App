@@ -13,16 +13,16 @@
     margin-top: -6px;
     margin-left: 40px;
 }
-#navmain{
-    margin-left: 100px;
-}
-.navitem{
-    padding:0px 200px ;
-}
+
 a {
-    color: inherit;
+    color: white;
     text-decoration: none;
     transition: all 0.3s;
   }
+  
+  a:hover, a:focus {
+    text-decoration: none;
+  }
+  
   
  

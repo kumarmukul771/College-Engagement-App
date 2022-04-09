@@ -28,11 +28,12 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
+    
   </head>
   <body>
     <%- include('partials/header') %>
-    <h3>Compose</h3>
-    <form action="/create-post" method="POST">
+    <h3 class="myh3">Compose</h3>
+    <form class="myform" action="/create-post" method="POST">
       <p>Title</p>
       <div>
         <input type="text" id="title" name="title" />
@@ -41,7 +42,7 @@
         <p>Tag</p>
         <div class="dropdown">
           <button
-            class="btn btn-secondary dropdown-toggle"
+            class="btn btn-primary btn-outline-light dropdown-toggle"
             type="button"
             id="dropdownMenuButton"
             data-toggle="dropdown"
