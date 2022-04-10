@@ -39,7 +39,7 @@
         <input type="text" id="title" name="title" />
       </div>
       <div>
-        <p>Tag</p>
+        <p>Type</p>
         <div class="dropdown">
           <button
             class="btn btn-primary btn-outline-light dropdown-toggle"
@@ -48,15 +48,18 @@
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
+            
           >
-            Dropdown button
+            select 
           </button>
+          
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="#">Notice</a>
             <a class="dropdown-item" href="#">Educative Blog</a>
             <a class="dropdown-item" href="#">Interview Experience</a>
           </div>
         </div>
+        <input type="hidden" name="type" id="dropdown-input" value="Blog">
       </div>
       <br />
       <p>Content</p>
@@ -69,5 +72,20 @@
       </div>
     </form>
     <%- include('partials/footer') %>
+    <script>
+      var div = document.getElementsByClassName('dropdown-menu');
+
+      for(var  i =0;i<div.length;i++){
+
+        for(var  j =0;j<div[i].children.length;j++){
+
+          div[i].children[j].addEventListener('click',function(){
+          this.parentNode.previousElementSibling.innerHTML = this.innerHTML;
+          document.getElementById('dropdown-input').value = this.innerHTML;
+          })
+
+        }
+      }
+    </script>
   </body>
 </html>
