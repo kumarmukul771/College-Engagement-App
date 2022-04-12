@@ -1,7 +1,7 @@
 const Post = require("../model/post");
 
 exports.getAllBlogs = async (req, res) => {
-    try {
+    try { 
         const blogs = await Post.find({});
         res.setHeader('Set-Cookie', `blogs=[{a,b,c}]`)
         res.render("blog.ejs", {blogs, isLoggedIn: req.session.isLoggedIn});
