@@ -1,47 +1,83 @@
 const User = require("../model/user")
+const bcrypt = require("bcrypt")
 
 exports.logout = (req, res) => {
     req.session.isLoggedIn = false;
     res.redirect("/");
 }
-exports.getSignup = (req, res) => {
-    res.render("signup");
-}
+
 exports.postSignUp = async (req, res) => {
-    let fullName = req.body.fullName,
-        email = req.body.email,
-        password = req.body.password;
+    try {
+        let fullName = req.body.fullName,
+            email = req.body.email,
+            password = req.body.password;
 
-    let username = email.split("@")[0]
-    
-    const user = await User.create({
-        name: fullName,
-        email,
-        password,
-        admin: true,
-        username: username,
-        posts: [{}]
-    })
+        let username = email.split("@")[0]
 
-    // console.log(user)
-    req.session.isLoggedIn = true;
-    res.redirect("/");
+        let hashedPassword = await bcrypt.hash(password, 12);
+        console.log(hashedPassword)
+
+        const user = await User.create({
+            name: fullName,
+            email,
+            password: hashedPassword,
+            admin: true,
+            username: username,
+            posts: [{}]
+        })
+
+        req.session.isLoggedIn = true;
+        req.session.user = user;
+        res.redirect("/");
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 exports.postLogin = async (req, res) => {
-    console.log(req.body.email, req.body.password)
-    let user = await User.findOne({email: req.body.email, password: req.body.password});
-
-    if (user) {
-        req.session.isLoggedIn = true;
-        res.redirect("/");
-    } else 
-        res.send("Wrong input")
 
     
+    try {
 
+        const {email,password} = req.body;
+        let user = await User.findOne({email: email});
+        console.log(user)
+
+        if (user) {
+            let hashedPassword = user.password
+
+            const result = await bcrypt.compare(password, hashedPassword);
+
+        if (result) {
+            req.session.isLoggedIn = true;
+            req.session.user = user;
+            res.redirect("/");
+        } else {
+            await req.flash('message',"Invalid password ")
+            res.redirect("/login")
+        }
+        } else {
+            await req.flash('message',"Invalid email")
+                res.redirect("/login")
+        }
+    } catch (err) {
+    console.log(err)
+}}
+
+exports.getLogin = async (req, res) => { // res.setHeader('Set-Cookie','isLogged=True')
+    if(req.session.isLoggedIn){
+        return res.redirect("/");
+    }
+    const csrfToken = req.csrfToken();
+    const message = await req.consumeFlash('message')
+    res.render("register/login",{message:message[0],csrfToken});
 }
 
-exports.getLogin = (req, res) => { // res.setHeader('Set-Cookie','isLogged=True')
-    res.render("login");
+exports.getSignUp = (req, res) => {
+    if(req.session.isLoggedIn){
+        return res.redirect("/");
+    }
+    const csrfToken = req.csrfToken();
+    res.render("register/signup",{csrfToken});
 }
+ 

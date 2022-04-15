@@ -64,49 +64,47 @@
             </li>
 
             <% if(isLoggedIn) {%>
-            <li class="nav-item pe-4">
-              <a class="nav-link active" aria-current="page" href="/create-post"
-                >Create Post</a
-              >
-            </li>
-            <% } %>
-          </ul>
-          <form class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-primary" type="submit">
-              Search
-            </button>
-          </form>
-          <ul class="navbar-nav me-4 mb-2 mb-lg-0" id="navmain">
-
-            <% if(isLoggedIn) {%>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/logout"
-                >Log out</a
-              >
-            </li>
-            <% } else {%>
-
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/login"
-                >Login</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">/</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/signup"
-                >Sign Up</a
-              >
-            </li>
-            <% } %>
+              <li class="nav-item pe-4">
+                <a class="nav-link active" aria-current="page" href="/create-post"
+                  >Create Post</a
+                >
+              </li>
+              <% } %>
+            </ul>
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-primary" type="submit">
+                Search
+              </button>
+            </form>
+            <ul class="navbar-nav me-4 mb-2 mb-lg-0" id="navmain">
+  
+              <% if(isLoggedIn) {%>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/logout"
+                  >Log out <%= username %></a
+                >
+              </li>
+              <% } else {%>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/login"
+                  >Login</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">/</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/signup"
+                  >Sign Up</a
+                >
+              </li>
+              <% } %>
           </ul>
         </div>
       </div>

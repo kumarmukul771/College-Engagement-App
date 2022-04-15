@@ -373,6 +373,13 @@ form.sign-in-form {
   }
 }
 
+.flashMessage{
+  position: absolute;
+  left: 25%;
+  bottom: 40%;
+  font-size: 1rem;
+}
+
 @media (max-width: 570px) {
   form {
     padding: 0 1.5rem;
