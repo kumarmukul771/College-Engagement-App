@@ -1,16 +1,24 @@
 const express = require("express");
-const { route } = require("express/lib/application");
-const authController = require("../controllers/authController")
+const {route} = require("express/lib/application");
+const {
+    getLogin,
+    getSignUp,
+    postSignUp,
+    postLogin,
+    logout
+} = require("../controllers/authController")
+const isNotAuth = require("../middlewares/isNotAuth")
+const isAuth = require("../middlewares/isAuth")
 
 const router = express.Router();
 
-router.get("/login", authController.getLogin);
+router.get("/login", isNotAuth, getLogin);
 
-router.get("/signup", authController.getSignUp);
+router.get("/signup", isNotAuth, getSignUp);
 
-router.post("/signup", authController.postSignUp);
-router.post("/login",authController.postLogin)
+router.post("/signup", isNotAuth, postSignUp);
+router.post("/login", isNotAuth, postLogin)
 
-router.get("/logout", authController.logout)
+router.get("/logout", isAuth,logout)
 
 module.exports = router;

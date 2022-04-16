@@ -13,7 +13,9 @@
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
+                <% if(message) { %>
                    <h2 style="color: red;"> <%= message %> </h2> 
+                   <% } %>
                 <form action="/login" method="POST" class="sign-in-form">
                     <h2 class="title">Sign in</h2>
                     <div class="input-field">
@@ -23,7 +25,7 @@
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
                         <input type="password" name="password" placeholder="Password" />
-                    </div>
+                    </div> 
                     <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
                     <input type="submit" value="Login" class="btn solid" />
                     <p class="social-text">Or Sign in with social platforms</p>

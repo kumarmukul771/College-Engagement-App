@@ -1,15 +1,24 @@
 const Post = require("../model/post");
 
 exports.getAllBlogs = async (req, res) => {
-    try { 
+    try {
         const blogs = await Post.find({});
-        res.setHeader('Set-Cookie', `blogs=[{a,b,c}]`)
-        res.render("blog.ejs", {blogs, isLoggedIn: req.session.isLoggedIn});
+        let blogs_eg = {
+            blogs: blogs
+        }
+        let data = await JSON.stringify(blogs_eg)
+        res.send(data);
+        // res.render("blog.ejs", {blogs});
     } catch (err) {
         console.log(err);
     }
 };
 
-exports.getAllNotices = (req, res) => {
-    res.render("notice.ejs");
+exports.getAllNotices = async (req, res) => {
+    try {
+        const notices = await Post.find({type: 'notice'});
+        res.render("notice.ejs", {notices});
+    } catch (err) {
+        console.log(err);
+    }
 };

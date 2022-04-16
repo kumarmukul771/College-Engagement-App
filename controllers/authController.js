@@ -28,7 +28,7 @@ exports.postSignUp = async (req, res) => {
 
         req.session.isLoggedIn = true;
         req.session.user = user;
-        res.render("/");
+        res.redirect("/");
     } catch (err) {
         console.log(err);
     }
@@ -65,9 +65,6 @@ exports.postLogin = async (req, res) => {
 }}
 
 exports.getLogin = async (req, res) => { // res.setHeader('Set-Cookie','isLogged=True')
-    if(req.session.isLoggedIn){
-        return res.redirect("/");
-    }
     const csrfToken = req.csrfToken();
     const message = await req.consumeFlash('message')
     res.render("register/login",{message:message[0],csrfToken});

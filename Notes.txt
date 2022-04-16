@@ -110,3 +110,24 @@ muk axc
 // Saturdays class
 Error page 
 Invalid email or password styling
+
+// IsAuthenticated Middleware
+
+Topic for today
+// res.locals
+// protected routes
+// hash tags
+// request
+// JSON
+Javascript object notation
+// AJAX
+
+Asynchronous Javascript and XML
+
+// Tuesday
+Profile
+Blog
+interview
+notice
+create-post 
+search
