@@ -28,33 +28,38 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
+    
   </head>
   <body>
-    <h3>Compose</h3>
-    <form action="/create-post" method="POST">
+    <%- include('partials/header') %>
+    <h3 class="myh3">Compose</h3>
+    <form class="myform" action="/create-post" method="POST">
       <p>Title</p>
       <div>
         <input type="text" id="title" name="title" />
       </div>
       <div>
-        <p>Tag</p>
+        <p>Type</p>
         <div class="dropdown">
           <button
-            class="btn btn-secondary dropdown-toggle"
+            class="btn btn-primary btn-outline-light dropdown-toggle"
             type="button"
             id="dropdownMenuButton"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
+            
           >
-            Dropdown button
+            select 
           </button>
+          
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="#">Notice</a>
             <a class="dropdown-item" href="#">Educative Blog</a>
             <a class="dropdown-item" href="#">Interview Experience</a>
           </div>
         </div>
+        <input type="hidden" name="type" id="dropdown-input" value="Blog">
       </div>
       <br />
       <p>Content</p>
@@ -66,5 +71,21 @@
         <button type="submit" id="submit">Post</button>
       </div>
     </form>
+    <%- include('partials/footer') %>
+    <script>
+      var div = document.getElementsByClassName('dropdown-menu');
+
+      for(var  i =0;i<div.length;i++){
+
+        for(var  j =0;j<div[i].children.length;j++){
+
+          div[i].children[j].addEventListener('click',function(){
+          this.parentNode.previousElementSibling.innerHTML = this.innerHTML;
+          document.getElementById('dropdown-input').value = this.innerHTML;
+          })
+
+        }
+      }
+    </script>
   </body>
 </html>

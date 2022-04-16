@@ -1,3 +1,5 @@
+
+
 const Post = require("../model/post");
 
 exports.getInputForm =(req, res) => {
@@ -5,7 +7,6 @@ exports.getInputForm =(req, res) => {
 }
 
 exports.createPost = async (req, res) => {
-    console.log(req.body.title, req.body.content);
     let postData = new Post({
         title: req.body.title,
         content: req.body.content,
@@ -24,9 +25,8 @@ exports.createPost = async (req, res) => {
             date: new Date(),
             upvote: 0
         })
-        const posts = await Post.find({});
-        console.log(posts);
-        res.render("posts.ejs", {posts: posts});
+        res.redirect("/blog");
+        
     } catch (err) {
         console.log(err)
     }

@@ -3,13 +3,14 @@ body{
     background-color: rgb(46, 33, 157);
 
 }
-h3{
+.myh3{
+    margin: 15px;
     text-align: center;
     font-size: 40px;
-    color: burlywood;
+    
 }
-form{
-    margin: 0% 10%;
+.myform{
+    margin: 3% 10%;
     padding: 10px;
     background-color: rgb(21, 84, 244);
 
@@ -19,16 +20,19 @@ div{
 }
 
 #content{
-    background-color: rgb(77, 77, 172);
+    background-color: white;
     border-radius: 20px;
     padding: 20px;
     resize: none;
     width: 90%;
-    color: white;
+    color: black;
 }
 #submit{
-    background-color: blueviolet;
+    background-color: rgb(18, 18, 120);
     margin: 10px;
+    color: white;
+    padding: 7px 25px;
+    font-size: large;
 }
 #title{
     width: 90%;

@@ -1,0 +1,12 @@
+footer {
+    background: rgb(26,57,99) ;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  
+  a:hover, a:focus {
+    text-decoration: none;
+  }
