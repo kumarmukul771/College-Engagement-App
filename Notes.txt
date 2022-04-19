@@ -131,3 +131,25 @@ interview
 notice
 create-post 
 search
+
+// Tuesday To do 
+1. Like and unlike (Using AJAX)
+2. Mongodb (CRUD operations , intro to some Mongodb functions) (findByIdAndUpdate check)
+3. Search Page (based on author , title )
+4. Content Type 
+5. Enctype 
+6. Form validation
+7. req.session.destroy to logout
+8. Refractoring Code
+9. Profile Page
+10. Admin
+Events
+localstorage
+
+regex
+
+// Add path bin to env variable
+// show dbs 
+// use db_name
+// show collections
+// db.posts.find({ hashTags:{$regex : "#good"}}).pretty()

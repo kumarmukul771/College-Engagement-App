@@ -1,8 +1,8 @@
 const User = require("../model/user")
 const bcrypt = require("bcrypt")
 
-exports.logout = (req, res) => {
-    req.session.isLoggedIn = false;
+exports.logout = async (req, res) => {
+    await req.session.destroy();
     res.redirect("/");
 }
 
@@ -15,13 +15,12 @@ exports.postSignUp = async (req, res) => {
         let username = email.split("@")[0]
 
         let hashedPassword = await bcrypt.hash(password, 12);
-        console.log(hashedPassword)
 
         const user = await User.create({
             name: fullName,
             email,
             password: hashedPassword,
-            admin: true,
+            admin: false,
             username: username,
             posts: [{}]
         })

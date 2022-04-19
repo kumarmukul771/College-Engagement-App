@@ -27,7 +27,7 @@
 
                 <div class="card">
                   <img class="card-img" src="https://www.emergingedtech.com/wp/wp-content/uploads/2018/04/blogging.jpg" alt="Bologna">
-                  <div class="card-img-overlay">
+                  <div >
                     <a href="#" class="btn btn-light btn-sm"><%= blogs[i].type %></a>
                   </div>
 
@@ -38,7 +38,7 @@
                         <i class="far fa-clock text-info"></i> 30 minutes
                       </small>
                       <p class="card-text"><%= blogs[i].content %></p>
-                      <a href="#" class="btn btn-info">Read More</a>
+                      <a href="/singleBlog/<%= blogs[i]._id %>" class="btn btn-info">Read More</a>
                     </div>
                     <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
                       <div class="views">Apr 1, 12:45PM

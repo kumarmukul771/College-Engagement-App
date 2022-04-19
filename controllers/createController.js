@@ -18,7 +18,8 @@ exports.createPost = async (req, res) => {
             author: req.session.user.username,
             date: new Date(),
             upvote: 0,
-            hashTags: hashTags
+            hashTags: hashTags,
+            upvoteLists : []
         })
         const posts = await Post.find({});
         res.render("posts.ejs", {posts: posts});

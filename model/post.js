@@ -18,7 +18,11 @@ const postSchema = new mongoose.Schema({
         type: Date
     },
     upvote: Number,
-    hashTags : Array
+    upvoteLists: {
+        type: Array,
+        default: []
+    },
+    hashTags: Array
 });
 
 module.exports = mongoose.model('post', postSchema)
