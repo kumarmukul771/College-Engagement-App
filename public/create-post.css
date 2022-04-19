@@ -13,11 +13,9 @@ body{
     margin: 3% 10%;
     padding: 10px;
     background-color: rgb(21, 84, 244);
-
-}
-div{
     text-align: center;
 }
+
 
 #content{
     background-color: white;
@@ -35,14 +33,14 @@ div{
     font-size: large;
 }
 #title{
+    border-radius: 20px;
     width: 90%;
     padding: 10px;
 }
 
-p{
+.mypara{
     font-size: 30px;
     font-style: oblique;
-    text-align: center;
 }
 
 #interview{

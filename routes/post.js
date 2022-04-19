@@ -5,5 +5,6 @@ const router = express.Router();
 
 router.get("/blog", postController.getAllBlogs);
 router.get("/notice", postController.getAllNotices );
+router.get("/interview", postController.getAllInterviewExperiences );
 
 module.exports = router;

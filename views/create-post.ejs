@@ -34,12 +34,12 @@
     <%- include('partials/header') %>
     <h3 class="myh3">Compose</h3>
     <form class="myform" action="/create-post" method="POST">
-      <p>Title</p>
+      <p class="mypara">Title</p>
       <div>
         <input type="text" id="title" name="title" />
       </div>
       <div>
-        <p>Type</p>
+        <p class="mypara">Type</p>
         <div class="dropdown">
           <button
             class="btn btn-primary btn-outline-light dropdown-toggle"
@@ -62,9 +62,9 @@
         <input type="hidden" name="type" id="dropdown-input" value="Blog">
       </div>
       <br />
-      <p>Content</p>
+      <p class="mypara">Content</p>
       <div id="text_area">
-        <textarea name="content" id="content" cols="20" rows="25"></textarea>
+        <textarea name="content" id="content" cols="20" rows="20"></textarea>
       </div>
 
       <div>

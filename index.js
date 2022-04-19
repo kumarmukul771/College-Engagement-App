@@ -12,6 +12,7 @@ const authRoutes = require("./routes/auth");
 const postRoutes = require("./routes/post");
 const createRoutes = require("./routes/create");
 const searchRoutes = require("./routes/search");
+const profileRoutes = require("./routes/profile");
 const errorRoutes = require("./routes/errorPage")
 const req = require("express/lib/request");
 const MONGODB_URI = "mongodb://localhost:27017/collegeApp"
@@ -28,17 +29,29 @@ app.use(session({secret: "my secret", resave: false, saveUninitialized: false, s
 app.use(flash({sessionKeyName: 'flashMessage'}));
 
 app.use(csrfProtection);
+
+app.use((req, res, next) => {
+    res.locals.isLoggedIn = req.session.isLoggedIn;
+    res.locals.user = req.session.user;
+    if (req.session.user)
+        res.locals.username = req.session.user.username;
+     else
+        res.locals.username = null
+
+
+    res.locals.csrfToken = req.csrfToken();
+    next();
+})
+
+
 app.use(authRoutes);
 app.use(createRoutes);
 app.use(postRoutes);
 app.use(searchRoutes);
 app.use(errorRoutes);
+app.use(profileRoutes);
 app.get("/", (req, res) => { // const isLoggedIn = req.get('Cookie').split(";")[1].trim().split("=")[1] == 'True';
-    const isLoggedIn = req.session.isLoggedIn;
-    console.log(isLoggedIn);
-    console.log(req.session.user)
-    const {username} = req.session.user;
-    res.render("home.ejs", {isLoggedIn,username});
+    res.render("home.ejs");
 });
 
 // app.use((req,res)=>{

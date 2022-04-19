@@ -14,16 +14,14 @@
     <%- include('partials/header') %>
     <div class="container">
         <h1 style="text-align: center; text-decoration: underline;">NOTICE</h1>
+        <% for(let i in notices){ %>
         <div class="notice-box">
-            <h3>Title...</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos reprehenderit cum suscipit laudantium rerum recusandae, quos, saepe natus eum distinctio mollitia illo, esse exercitationem aliquid itaque culpa dolorum? Vero, ipsam!</p>
+            <h3><%= notices[i].title %></h3>
+            <p><%= notices[i].content %></p>
             <a href="#">Read more...</a>
         </div>  
-        <div class="notice-box">
-            <h3>Title...</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos reprehenderit cum suscipit laudantium rerum recusandae, quos, saepe natus eum distinctio mollitia illo, esse exercitationem aliquid itaque culpa dolorum? Vero, ipsam!</p>
-            <a href="#">Read more...</a>
-        </div>  
+        <% } %>
     </div>
+    <%- include('partials/footer') %>
 </body>
 </html>

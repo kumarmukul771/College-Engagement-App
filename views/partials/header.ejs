@@ -52,7 +52,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/blog"
+              <a class="nav-link active" aria-current="page" href="/interview"
                 >Interview Experience</a
               >
             </li>
@@ -87,9 +87,15 @@
               <% if(isLoggedIn) {%>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/logout"
-                  >Log out <%= username %></a
+                  >Log out</a
                 >
               </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/profile"
+                  ><%= username %></a
+                >
+              </li>
+              
               <% } else {%>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/login"

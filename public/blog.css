@@ -3,7 +3,13 @@ body {
     margin:0;
     box-sizing: border-box;
   }
-  
+  .container{
+    margin-top: 5% ;
+    margin-bottom: 5%;
+  }
+  .card{
+    margin: 2% 1%;
+  }
   .card-img {
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
