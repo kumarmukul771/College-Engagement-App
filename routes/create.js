@@ -1,10 +1,10 @@
 const express = require("express");
 const path = require("path");
 const router = express.Router();
-const createController = require("../controllers/createController")
+const {getInputForm,createPost} = require("../controllers/createController")
+const isAuth = require("../middlewares/isAuth");
+router.get("/create-post", isAuth ,getInputForm);
 
-router.get("/create-post", createController.getInputForm);
-
-router.post("/create-post", createController.createPost);
+router.post("/create-post",isAuth,createPost);
 
 module.exports = router

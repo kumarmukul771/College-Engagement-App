@@ -3,7 +3,7 @@ const path = require("path");
 const router = express.Router();
 
 router.get("/search", (req, res) => {
-   res.sendFile(path.join(__dirname, "..", "views", "search.html"));
+   res.render("search.ejs");
 });
 
 module.exports = router;

@@ -5,31 +5,24 @@
 </head>
 
 <div>
-  
-
-
     <div class="container p-5">
       <div class="row">
-        <% for(let i in notice){ %>
-        <% if (notice[i].type=="Notice") {%>
+
+        <% for(let i in profilepost){ %>
         <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-
-
-
           <div class="card">
             <img class="card-img" src="https://www.emergingedtech.com/wp/wp-content/uploads/2018/04/blogging.jpg"
               alt="Bologna">
             <div class="card-img-overlay">
-              <a href="#" class="btn btn-light btn-sm"><%= notice[i].type %></a>
+              <a href="#" class="btn btn-light btn-sm"><%= profilepost[i].type %></a>
             </div>
 
-
             <div class="card-body">
-              <h4 class="card-title"><%= notice[i].title %></h4>
+              <h4 class="card-title"><%= profilepost[i].title %></h4>
               <small class="text-muted cat">
                 <i class="far fa-clock text-info"></i> 30 minutes
               </small>
-              <p class="card-text"><%= notice[i].content %></p>
+              <p class="card-text"><%= profilepost[i].content %></p>
               <a href="#" class="btn btn-info">Read More</a>
             </div>
             <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
@@ -43,7 +36,6 @@
             </div>
           </div>
         </div>
-        <% } %>
         <% } %>
       </div>
 

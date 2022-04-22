@@ -4,28 +4,28 @@ exports.getInputForm =(req, res) => {
     res.render("create-post.ejs");
 }
 
-exports.createPost = async (req, res) => {
-    console.log(req.body.title, req.body.content);
-    let postData = new Post({
-        title: req.body.title,
-        content: req.body.content,
-        type: "Blog",
-        author: "Mukul",
-        date: new Date(),
-        upvote: 0
-    })
 
+
+exports.createPost = async (req, res) => {
+    let category = req.body.gridRadios;
+    let {content,title} =req.body;
+    let username =req.session.user.username;
+    let arr=content.split(" ");
+    let hashTags =arr.filter((value, index, array)=>{
+        return value[0]=='#'
+    });
+    
     try {
         const post = await Post.create({
-            title: req.body.title,
-            content: req.body.content,
-            type: "Blog",
-            author: "Mukul",
+            title,
+            content,
+            type: category,
+            author:username,
             date: new Date(),
-            upvote: 0
+            upvote: 0,
+            hashTags: hashTags
         })
         const posts = await Post.find({});
-        console.log(posts);
         res.render("posts.ejs", {posts: posts});
     } catch (err) {
         console.log(err)

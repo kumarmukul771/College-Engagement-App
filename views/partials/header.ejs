@@ -10,14 +10,16 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-
+    
     <link href="/header.css"  rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/52d40c951f.js" crossorigin="anonymous"></script>
+    <title>College Engagement</title>
+
     </head>
 
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg  ">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">
           <img src="/img/headerlogo.jpg" class="logo-image img-fluid" />
@@ -36,11 +38,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="navmain">
             <li class="nav-item pe-4">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
 
             <li class="nav-item pe-4">
-              <a class="nav-link active" aria-current="page" href="/blog"
+              <a class="nav-link  active"  aria-current="page" href="/blog"
                 >Blog</a
               >
             </li>
@@ -52,10 +54,18 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/blog"
+              <a class="nav-link   active" aria-current="page" href="/interview"
                 >Interview Experience</a
               >
             </li>
+
+            <% if(isLoggedIn) {%>  
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/create-post"
+                >Create Post</a
+              >
+            </li>
+            <% } %>
 
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/search"
@@ -63,17 +73,12 @@
               >
             </li>
 
-            <% if(isLoggedIn) {%>
-            <li class="nav-item pe-4">
-              <a class="nav-link active" aria-current="page" href="/create-post"
-                >Create Post</a
-              >
-            </li>
-            <% } %>
+            
+
           </ul>
           <form class="d-flex">
             <input
-              class="form-control me-2"
+              class="form-control me-2 bg-white"
               type="search"
               placeholder="Search"
               aria-label="Search"
@@ -84,13 +89,21 @@
           </form>
           <ul class="navbar-nav me-4 mb-2 mb-lg-0" id="navmain">
 
-            <% if(isLoggedIn) {%>
+          <% if(isLoggedIn) {%>  
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/logout"
-                >Log out</a
-              >
+              <a class="nav-link "id="usericon"><%=username[0] %></a>
             </li>
-            <% } else {%>
+            <li class="nav-item dropdown ">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <%=username %>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="#">Edit profile</a></li>
+                <li><a class="dropdown-item" href="/profile">My Post</a></li>
+                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+              </ul>
+            </li>
+          <% } else {%>
 
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/login"
@@ -106,7 +119,7 @@
                 >Sign Up</a
               >
             </li>
-            <% } %>
+          <% } %>
           </ul>
         </div>
       </div>

@@ -1,10 +1,13 @@
 const express = require("express");
 const path = require("path");
-const postController = require('../controllers/postController')
 const router = express.Router();
+const {getAllBlogs,getAllNotice,getAllInterview,getAllContent} = require('../controllers/postController')
+router.get("/blog", getAllBlogs);
 
-router.get("/blog", postController.getAllBlogs);
+router.get("/notice", getAllNotice );
 
-router.get("/notice", postController.getAllNotices );
+router.get("/interview", getAllInterview);
+
+router.get("/content", getAllContent);
 
 module.exports = router;

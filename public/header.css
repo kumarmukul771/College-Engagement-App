@@ -1,10 +1,13 @@
 .navbar{
     background-color: rgb(26,57,99);
+    /* color: white; */
     
 }
 .nav-link{
-    color: white;
+    color: white !important;
+    
 }
+
 .logo-image{
     width: 50px;
     height: 50px;
@@ -18,4 +21,27 @@
 }
 .navitem{
     padding:0px 200px ;
+}
+#usericon{
+    background-color: white;
+    color: blue !important;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0px;
+    font-size: 27px;
+    border-radius: 50%;
+    width: 40px;
+    pointer-events: none;
+}
+
+.navbar-expand-lg .navbar-collapse{
+    margin-right: 30px !important;
+}
+
+.dropdown-menu[data-bs-popper] {
+    margin-right: 200px !important;
+}
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+    left:-100%
 }
